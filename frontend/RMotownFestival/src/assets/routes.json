@@ -1,13 +1,15 @@
 {
     "routes": [
-      {
-        "route": "/"
-      },
-      {
-        "route": "/pictures/"
-      },
-      {
-        "route": "/upload/"
-      }
+        {​​
+
+            "route": "/*",
+      
+            "serve": "/index.html",
+      
+            "allowedRoles": ["anonymous"],
+      
+            "statusCode": 200
+      
+          }​​
     ]
   }
