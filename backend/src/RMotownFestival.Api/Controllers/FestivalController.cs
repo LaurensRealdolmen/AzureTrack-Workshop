@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-
 using Microsoft.AspNetCore.Mvc;
-
-using RMotownFestival.Api.Data;
-using RMotownFestival.Api.Domain;
+using RMotownFestival.DAL;
+using RMotownFestival.DAL.Data;
+using RMotownFestival.Domain;
 
 namespace RMotownFestival.Api.Controllers
 {
@@ -13,6 +12,13 @@ namespace RMotownFestival.Api.Controllers
     [ApiController]
     public class FestivalController : ControllerBase
     {
+        private readonly MotownDbContext _dbContext;
+
+        public FestivalController(MotownDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         [HttpGet("LineUp")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Schedule))]
         public ActionResult GetLineUp()
@@ -24,7 +30,8 @@ namespace RMotownFestival.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<Artist>))]
         public ActionResult GetArtists()
         {
-            return Ok(FestivalDataSource.Current.Artists);
+            var artists = _dbContext.Artists.ToList();
+            return Ok(artists);
         }
 
         [HttpGet("Stages")]

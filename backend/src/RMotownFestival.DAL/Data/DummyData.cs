@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using RMotownFestival.Domain;
 
-using RMotownFestival.Api.Domain;
-
-namespace RMotownFestival.Api.Data
+namespace RMotownFestival.DAL.Data
 {
-    static class FestivalDataSource
+    public static class FestivalDataSource
     {
         public static Festival Current { get; private set; }
 

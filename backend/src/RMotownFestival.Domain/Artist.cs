@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RMotownFestival.Api.Domain
+namespace RMotownFestival.Domain
 {
     public class Artist
     {

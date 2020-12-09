@@ -2,10 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>c8c7a61b-9558-4e61-bcc6-0248f3a4768d</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/ec97306b-609c-4931-8e09-cd1c14dfea02/resourceGroups/AzureTrackLab/providers/microsoft.insights/components/MotownFestivalInsights-LH</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.14.0" />
+    <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.6.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Azure" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="3.1.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RMotownFestival.DAL\RMotownFestival.DAL.csproj" />
+    <ProjectReference Include="..\RMotownFestival.Domain\RMotownFestival.Domain.csproj" />
   </ItemGroup>
 
 

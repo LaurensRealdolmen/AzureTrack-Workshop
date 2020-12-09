@@ -1,11 +1,13 @@
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using RMotownFestival.Api.Options;
+using RMotownFestival.DAL;
 
 namespace RMotownFestival.Api
 {
@@ -25,6 +27,9 @@ namespace RMotownFestival.Api
 
             services.AddCors();
             services.AddControllers();
+
+            services.AddDbContext<MotownDbContext>(opt => opt.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
+            services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
