@@ -20,7 +20,7 @@ namespace RMotownFestival.Api.Controllers
         [HttpGet]
         public string[] GetAllPictureUrls()
         {
-            var container = _blobUtility.GetPicturesContainer();
+            var container = _blobUtility.GetThumbsContainer();
 
             return container
                 .GetBlobs()

@@ -24,6 +24,9 @@ namespace RMotownFestival.Api.Common
         public BlobContainerClient GetPicturesContainer() => 
             _blobServiceClient.GetBlobContainerClient(_options.PicturesContainer);
 
+        public BlobContainerClient GetThumbsContainer() =>
+          _blobServiceClient.GetBlobContainerClient(_options.ThumbsContainer);
+
         public string GetSasUri(BlobContainerClient container, string blobName)
         {
             var sasBuilder = new BlobSasBuilder()
