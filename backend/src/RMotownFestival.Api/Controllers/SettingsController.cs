@@ -24,5 +24,12 @@ namespace RMotownFestival.Api.Controllers
         {
             return Ok(_options);
         }
+
+        [HttpGet("Version")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(AppSettingsOptions))]
+        public IActionResult GetVersion()
+        {
+            return Ok("4");
+        }
     }
 }
